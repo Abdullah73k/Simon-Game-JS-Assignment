@@ -1,0 +1,63 @@
+@import '../node_modules/nes.css/css/nes.min.css';
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url(/fonts/Minecraft.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: #fff;
+}
+
+#main-menu {
+    display: flex;
+    height: 100dvh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+button {
+    margin-left: 1rem;
+    padding: 0.425rem;
+    font-family: 'Minecraft';
+    background-color: #959494df;
+    transition: background-color 1.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #8B0000;
+    /* background: radial-gradient(circle, #8B0000, #600000); */
+    background-size: 150%;
+}
+
+.simon-logo {
+    height: 24rem;
+    width: 30rem;
+}
+
+  
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Game Page</title>
+		<link rel="stylesheet" href="../Styles/game.css" />
+	</head>
+	<body>
+		<main id="game-container">
+			<div id="help">CLICK ME</div>
+			<div class="modal" id="modal">
+				<div class="modal-inner">
+					<h2>What is this game?</h2>
+					<p>
+						This web game is based on the game SIMON. You must repeat the random
+						sequence of lights by pressing the colored buttons in the correct
+						order. If you click it in the wrong order you will lose and have to
+						restart
+					</p>
+                    <button id="close-modal">CLOSE </button>
+				</div>
+			</div>
+
+			<h1 id="game-state-text">Click any button to start the game!</h1>
+			<div class="simon-button" type="button" id="green"></div>
+			<div class="simon-button" type="button" id="blue"></div>
+			<div class="simon-button" type="button" id="red"></div>
+			<div class="simon-button" type="button" id="yellow"></div>
+		</main>
+        <script src="../JS/game.js"></script>
+	</body>
+</html>
