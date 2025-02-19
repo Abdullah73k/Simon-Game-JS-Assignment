@@ -97,7 +97,8 @@ body {
     margin: 2rem;
     padding: 2rem;
     border: 1px solid #888;
-    width: 25%;
+    min-width: 25%;
+    max-width: 50%;
 }
 
 #close-modal {

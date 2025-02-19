@@ -20,4 +20,17 @@ function gameAlgorithm() {
     let colors = ["green", "red", "yellow", "blue"];
     let randomInt = Math.floor(Math.random() * colors.length);
     let randomColor = colors[randomInt];
+
+    
+    let isPlaying = false;
+
+    while(!isPlaying) {
+
+    }
+
+
+}
+
+window.onclick = () => {
+    console.log("clicked");
 }
