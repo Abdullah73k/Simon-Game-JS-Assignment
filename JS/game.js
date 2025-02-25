@@ -10,9 +10,9 @@ let Close = document.getElementById("close-modal");
 let gameMessage = document.getElementById("game-state-text");
 
 // global variables
-let sequence = ["blue", "green", "yellow"];
+let sequence = [];
 let playerSequence = [];
-let playerWent = true;
+let playerTurn = false;
 let round = 0;
 let gameStarted = false;
 let i = 0;
@@ -55,8 +55,6 @@ function playSequence() {
 		button.classList.remove("active");
 	}
 	playerSequence.length = 0;
-	round++;
-	playerWent = false;
 }
 
 // gets the player input
@@ -65,35 +63,44 @@ function playerInput(color) {
 	checkPlayersSequence();
 }
 
-red.onclick = () => {
-	playerInput("red");
-};
-blue.onclick = () => {
-	playerInput("blue");
-};
-yellow.onclick = () => {
-	playerInput("yellow");
-};
-green.onclick = () => {
-	playerInput("green");
-};
-
 // check his current attempt to what is stored in the sequence
 function checkPlayersSequence() {
 	if (sequence[i] !== playerSequence[i]) {
 		gameMessage.textContent = `You lost on round ${round}, click any key to play again!`;
+		gameStarted = false;
 	}
 	i++;
 }
 
-// contains all of the other functions for the final game algorithm
-function gameAlgorithm() {
-	
+
+function startGame() {
+	if (gameStarted) {
+		while (playerTurn == false) {
+			randomColor();
+			playSequence();
+		}
+		red.onclick = () => {
+			playerInput("red");
+		};
+		blue.onclick = () => {
+			playerInput("blue");
+		};
+		yellow.onclick = () => {
+			playerInput("yellow");
+		};
+		green.onclick = () => {
+			playerInput("green");
+		};
+	}
 }
 
 // start game
 window.onkeydown = () => {
 	console.log("clicked");
-	console.log(playerSequence);
-	console.log();
+	gameStarted = true;
+	startGame();
+// 	setInterval(() => {
+// 	console.log(sequence, playerSequence)
+// }, 1000);
 };
+
