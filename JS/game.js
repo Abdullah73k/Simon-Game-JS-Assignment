@@ -1,5 +1,3 @@
-import { nameInput, ageInput, colorInput } from "./userInput";
-
 let green = document.getElementById("green");
 let red = document.getElementById("red");
 let yellow = document.getElementById("yellow");
@@ -12,10 +10,10 @@ let close = document.getElementById("close-modal");
 let gameMessage = document.getElementById("game-state-text");
 
 // global variables
-let sequence = [];
+let sequence = ["blue", "green", "yellow", "red"];
 let isPlaying = false;
-let platerSequence = [];
-let playerWent = false;
+let playerSequence = [];
+let playerWent = true;
 let round = 1;
 
 // displays the 'help' section
@@ -38,53 +36,50 @@ function randomColor() {
 
 // plays the random sequence created
 function playSequence() {
-	const redAudio = new Audio("red.ogg");
-	const blueAudio = new Audio("blue.way");
-	const yellowAudio = new Audio("yellow.way");
-	const greenAudio = new Audio("green.way");
+	const sounds = {
+		red: new Audio("../Audio/red.ogg"),
+		blue: new Audio("../Audio/blue.wav"),
+		green: new Audio("../Audio/green.wav"),
+		yellow: new Audio("../Audio/yellow.wav"),
+	};
 
-	if (playerWent) { // only plays if player went
+	if (playerWent) {
+		let delay = 0;
 		for (let btn of sequence) {
-			switch (btn) { // checks which color to click
-				case "red":
-					redAudio.play();
-					break;
-				case "blue":
-					blueAudio.play();
-					break;
-				case "green":
-					greenAudio.play();
-					break;
-				case "yellow":
-					yellowAudio.play();
-					break;
-			}
+			let button = document.getElementById(btn);
+			setTimeout(() => {
+				sounds[btn].play();
+				button.classList.add("active");
+			}, delay);
+			delay += 1000;
+			button.classList.remove("active");
 		}
+		playerWent = false;
 	}
 }
 
 // gets the player input
 function playerInput() {
-    red.onclick = () => {
-        playerSequence.push('red');
-    }
-    blue.onclick = () => {
-        playerSequence.push('blue');
-    }
-    yellow.onclick = () => {
-        playerSequence.push('yellow');
-    }
-    green.onclick = () => {
-        playerSequence.push('green');
-    }
+	red.onclick = () => {
+		playerSequence.push("red");
+	};
+	blue.onclick = () => {
+		playerSequence.push("blue");
+	};
+	yellow.onclick = () => {
+		playerSequence.push("yellow");
+	};
+	green.onclick = () => {
+		playerSequence.push("green");
+	};
 }
 
 function checkPlayersSequence() {
-    if (playerWent) {
-        if (JSON.stringify(sequence) !== JSON.stringify(playSequence)) {
-            gameMessage.textContent = `You lost on round ${round}, click anywhere to play again!`;
-        }
-    }
+	if (playerWent) {
+		if (JSON.stringify(sequence) !== JSON.stringify(playerSequence)) {
+			gameMessage.textContent = `You lost on round ${round}, click anywhere to play again!`;
+		}
+	}
 }
 
 // contains all of the other functions for the final game algorithm
@@ -93,6 +88,7 @@ function gameAlgorithm() {
 }
 
 // start game
-window.onclick = () => {
+window.onkeydown = () => {
 	console.log("clicked");
+	playSequence();
 };
