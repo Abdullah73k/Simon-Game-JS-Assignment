@@ -37,8 +37,8 @@ let sounds = {
 };
 
 // Help section logic
-help.onclick = () => (modal.style.display = "flex");
-Close.onclick = () => (modal.style.display = "none");
+help.addEventListener("click", () => (modal.style.display = "flex"));
+Close.addEventListener("click", () => (modal.style.display = "none"));
 
 // Generates a new random color and adds it to the sequence
 function addRandomColor() {
@@ -128,7 +128,7 @@ window.onkeydown = () => {
 };
 
 // Listen for player clicks
-red.onclick = () => playerInput("red");
-blue.onclick = () => playerInput("blue");
-yellow.onclick = () => playerInput("yellow");
-green.onclick = () => playerInput("green");
+red.addEventListener("click", () => playerInput("red"));
+blue.addEventListener("click", () => playerInput("blue"));
+yellow.addEventListener("click", () => playerInput("yellow"));
+green.addEventListener("click", () => playerInput("green"));
