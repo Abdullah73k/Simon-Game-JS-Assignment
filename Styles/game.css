@@ -1,115 +1,121 @@
-@import '../node_modules/nes.css/css/nes.min.css';
+/*
+Name: Abdullah Khamis
+Date: feb, 4, 2025
+Purpose: Contains the styles for the actual game/game.html
+*/
+
+@import "../node_modules/nes.css/css/nes.min.css";
 
 @font-face {
-    font-family: 'Minecraft';
-    src: url(/fonts/Minecraft.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Minecraft";
+	src: url(/fonts/Minecraft.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-    background-color: black;
-    color: #fff;
+	background-color: black;
+	color: #fff;
 }
 
 #game-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    height: 100vh;
-    width: 100vw;
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(8, 1fr);
+	height: 100vh;
+	width: 100vw;
 }
 
 #help {
-    grid-area: 1 / 1 / 2 / 2;
-    font-family: 'Minecraft';
-    font-size: 1.5rem;
-    text-align: center;
-    place-self: center;
+	grid-area: 1 / 1 / 2 / 2;
+	font-family: "Minecraft";
+	font-size: 0.65rem;
+	margin: 0.35em;
+	margin-left: 0.35em;
+	text-align: center;
+	place-self: center;
 }
 
 #game-state-text {
-    grid-area: 1 / 2/ 3 / 8;
-    font-family: 'Minecraft';
-    font-size: 3rem;
-    text-align: enter;
-    place-self: center;
-    margin: auto;
+	grid-area: 1 / 2/ 3 / 8;
+	font-family: "Minecraft";
+	font-size: 1.5rem;
+	text-align: center;
+	place-self: center;
 }
 
 .simon-button {
-    width: 10rem;
-    height: 10rem;
-    place-self: center;
-    margin: 1rem;
-    border-radius: 15%;
-    border: #ffffff5d solid 0.25rem;
+	width: 8rem;
+	height: 8rem;
+	place-self: center;
+	margin: 0.75rem;
+	border-radius: 15%;
+	border: #ffffff5d solid 0.25rem;
 }
 
 #green {
-    background-color: green;
-    grid-area: 3 / 3 / 5 / 5;
-    justify-self: end;
-    box-shadow: 0 0 1rem 0.3rem rgba(0, 255, 0, 0.286);
+	background-color: green;
+	grid-area: 3 / 3 / 5 / 5;
+	justify-self: end;
+	box-shadow: 0 0 1rem 0.3rem rgba(0, 255, 0, 0.286);
 }
 
 #blue {
-    background-color: blue;
-    grid-area: 3 / 5 / 5 / 7;
-    justify-self: start;
-    box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 255, 0.423);
+	background-color: blue;
+	grid-area: 3 / 5 / 5 / 7;
+	justify-self: start;
+	box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 255, 0.423);
 }
 
 #red {
-    background-color: red;
-    grid-area: 5 / 3 / 7 / 5;
-    justify-self: end;
-    box-shadow: 0 0 1rem 0.3rem rgba(255, 0, 0, 0.416);
+	background-color: red;
+	grid-area: 5 / 3 / 7 / 5;
+	justify-self: end;
+	box-shadow: 0 0 1rem 0.3rem rgba(255, 0, 0, 0.416);
 }
 
 #yellow {
-    background-color: rgba(255, 255, 0, 0.807);
-    grid-area: 5 / 5 / 7 / 7;
-    justify-self: start;
-    box-shadow: 0 0 1rem 0.3rem rgba(255, 255, 0, 0.4);
+	background-color: rgba(255, 255, 0, 0.807);
+	grid-area: 5 / 5 / 7 / 7;
+	justify-self: start;
+	box-shadow: 0 0 1rem 0.3rem rgba(255, 255, 0, 0.4);
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-inner {
-    font-family: 'Minecraft';
-    background-color: #00000000;
-    margin: 2rem;
-    padding: 2rem;
-    border: 1px solid #888;
-    min-width: 25%;
-    max-width: 50%;
+	font-family: "Minecraft";
+	background-color: #00000000;
+	margin: 2rem;
+	padding: 2rem;
+	border: 1px solid #888;
+	min-width: 25%;
+	max-width: 75%;
 }
 
 #close-modal {
-    background-color: black;
-    color: white;
-    padding: 0.325rem 1rem;
-    align-self: center;
+	background-color: black;
+	color: white;
+	padding: 0.325rem 1rem;
+	align-self: center;
 }
 
 .active {
-    opacity: 0.5;
-    transition: opacity 0.2s ease-in-out;
+	opacity: 0.5;
+	transition: opacity 0.2s ease-in-out;
 }
-

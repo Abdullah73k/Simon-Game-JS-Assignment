@@ -1,3 +1,10 @@
+/*
+Name: Abdullah Khamis
+Date: feb, 13, 2025
+Purpose: This file handles the user input logic for when they first visit the site
+*/
+
+
 // userInput.js
 let fName = document.getElementById("fName");
 let age = document.getElementById("age");

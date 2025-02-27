@@ -1,106 +1,134 @@
+/*
+Name: Abdullah Khamis
+Date: feb, 4, 2025
+Purpose: This file contains the game logic
+*/
+
+// Retrieve the favorite color from localStorage
+const savedColor = localStorage.getItem("colorInput");
+
+// Apply users favorite color
+if (savedColor) {
+	document.body.style.backgroundColor = savedColor.toLowerCase();
+}
+
+// Select elements
 let green = document.getElementById("green");
 let red = document.getElementById("red");
 let yellow = document.getElementById("yellow");
 let blue = document.getElementById("blue");
-
 let help = document.getElementById("help");
 let modal = document.getElementById("modal");
 let Close = document.getElementById("close-modal");
-
 let gameMessage = document.getElementById("game-state-text");
 
-// global variables
+// Global variables
 let sequence = [];
 let playerSequence = [];
-let playerTurn = false;
 let round = 0;
 let gameStarted = false;
-let i = 0;
 
-// displays the 'help' section
-help.onclick = () => {
-	modal.style.display = "flex";
+// Sounds
+let sounds = {
+	red: new Audio("../Audio/red.ogg"),
+	blue: new Audio("../Audio/blue.wav"),
+	green: new Audio("../Audio/green.wav"),
+	yellow: new Audio("../Audio/yellow.wav"),
 };
 
-// hides the 'help' section
-Close.onclick = () => {
-	modal.style.display = "none";
-};
+// Help section logic
+help.onclick = () => (modal.style.display = "flex");
+Close.onclick = () => (modal.style.display = "none");
 
-// generates a random color to click
-function randomColor() {
+// Generates a new random color and adds it to the sequence
+function addRandomColor() {
 	const colors = ["green", "red", "yellow", "blue"];
-	let randomInt = Math.floor(Math.random() * colors.length);
-	let randColor = colors[randomInt];
+	let randColor = colors[Math.floor(Math.random() * colors.length)];
 	sequence.push(randColor);
 }
 
-// plays the random sequence created
+// Plays the entire sequence (with delays)
 function playSequence() {
-	const sounds = {
-		red: new Audio("../Audio/red.ogg"),
-		blue: new Audio("../Audio/blue.wav"),
-		green: new Audio("../Audio/green.wav"),
-		yellow: new Audio("../Audio/yellow.wav"),
-	};
 	let delay = 0;
+	playerSequence = []; // Reset player input
 
-	for (let btn of sequence) {
-		let button = document.getElementById(btn);
+	sequence.forEach((color, index) => {
 		setTimeout(() => {
-			sounds[btn].play();
+			let button = document.getElementById(color);
+			sounds[color].play();
 			button.classList.add("active");
+
+			setTimeout(() => button.classList.remove("active"), 500);
 		}, delay);
+
 		delay += 1000;
-		button.classList.remove("active");
-	}
-	playerSequence.length = 0;
+	});
+
+	// After playing the sequence, allow the player to input
+	setTimeout(() => {
+		gameMessage.textContent = "Your turn!";
+	}, delay);
 }
 
-// gets the player input
+// Handles player input
 function playerInput(color) {
+	if (!gameStarted) return;
+	let button = document.getElementById(color);
+	button.classList.add("active");
+	sounds[color].play();
+	setTimeout(() => button.classList.remove("active"), 200);
+
 	playerSequence.push(color);
 	checkPlayersSequence();
 }
 
-// check his current attempt to what is stored in the sequence
+// Check if the player's sequence is correct
 function checkPlayersSequence() {
-	if (sequence[i] !== playerSequence[i]) {
-		gameMessage.textContent = `You lost on round ${round}, click any key to play again!`;
+	let gameOverAudio = new Audio("../Audio/gameOver1.mp3");
+	let currentIndex = playerSequence.length - 1;
+
+	if (playerSequence[currentIndex] !== sequence[currentIndex]) {
+		gameMessage.textContent = `Game Over! You reached round ${round}. Press any key to play again.`;
+		gameOverAudio.play();
 		gameStarted = false;
+		return;
 	}
-	i++;
-}
 
+	// If the player finished the sequence correctly, start next round
+	if (playerSequence.length === sequence.length) {
+		round++;
+		setTimeout(() => (gameMessage.textContent = `Round ${round}`), 1000);
 
-function startGame() {
-	if (gameStarted) {
-		while (playerTurn == false) {
-			randomColor();
-			playSequence();
-		}
-		red.onclick = () => {
-			playerInput("red");
-		};
-		blue.onclick = () => {
-			playerInput("blue");
-		};
-		yellow.onclick = () => {
-			playerInput("yellow");
-		};
-		green.onclick = () => {
-			playerInput("green");
-		};
+		setTimeout(() => {
+			nextRound();
+		}, 2000);
 	}
 }
 
-// start game
+// Starts the next round
+function nextRound() {
+	if (!gameStarted) return;
+
+	addRandomColor();
+	playSequence();
+}
+
+// Starts the game when a key is pressed
 window.onkeydown = () => {
-	console.log("clicked");
-	gameStarted = true;
-	startGame();
-// 	setInterval(() => {
-// 	console.log(sequence, playerSequence)
-// }, 1000);
+	if (!gameStarted) {
+		gameStarted = true;
+		sequence = [];
+		playerSequence = [];
+		round = 1;
+		gameMessage.textContent = `Round ${round}`;
+		setTimeout(() => {
+			nextRound();
+		}, 1000);
+	}
 };
 
+// Listen for player clicks
+red.onclick = () => playerInput("red");
+blue.onclick = () => playerInput("blue");
+yellow.onclick = () => playerInput("yellow");
+green.onclick = () => playerInput("green");

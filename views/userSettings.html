@@ -1,25 +1,38 @@
+<!-- 
+Name: Abdullah Khamis
+Date: feb, 13, 2025
+Purpose: Contains the form html for the user input, this is the first page they visit
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>DoMy JS Game</title>
-		<link rel="stylesheet" href="../Styles/playerInput.css">
+		<link rel="stylesheet" href="../Styles/playerInput.css" />
 	</head>
 	<body>
 		<main id="userSetting-container">
 			<form id="form">
-				<label for="fName">Enter your name: </label>
-				<input type="text" name="fName" id="fName" required />
+				<div class="form-group">
+					<label for="fName">Enter your name:</label>
+					<input type="text" name="fName" id="fName" required />
+				</div>
 
-				<label for="age">Enter your age: </label>
-				<input type="text" name="age" id="age" required />
+				<div class="form-group">
+					<label for="age">Enter your age:</label>
+					<input type="text" name="age" id="age" required />
+				</div>
 
-				<label for="favoriteColor">Enter your favorite color: </label>
-				<input type="text" name="favoriteColor" id="favoriteColor" required />
+				<div class="form-group">
+					<label for="favoriteColor">Enter your favorite color:</label>
+					<input type="text" name="favoriteColor" id="favoriteColor" required />
+				</div>
+
 				<button type="submit" id="inputSubmission">Submit</button>
 			</form>
 		</main>
-        <script type="module" src="../JS/userInput.js"></script>
+		<script type="module" src="../JS/userInput.js"></script>
 	</body>
 </html>

@@ -1,3 +1,10 @@
+/*
+Name: Abdullah Khamis
+Date: feb, 4, 2025
+Purpose: Contains the styles for the user input page
+*/
+
+
 @import '../node_modules/nes.css/css/nes.min.css';
 
 @font-face {
@@ -13,6 +20,11 @@
     margin: 0;
 }
 
+body {
+    color: white;
+    background-color: black;
+}
+
 #userSetting-container {
     width: 100vw;
     height: 100dvh;
@@ -23,11 +35,28 @@ form {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centers the form */
     justify-content: center;
     gap: 2em;
 }
 
-label, input, button {
-    max-width: 30%;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left-aligns the label and input */
+    width: 40%; /* Controls the width of input fields */
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 0.5em; /* Adds spacing between label and input */
+}
+
+input {
+    width: 100%; /* Makes the input take the full width of .form-group */
+    padding: 0.5em;
+}
+
+button {
+    padding: .5em 2em;
 }
