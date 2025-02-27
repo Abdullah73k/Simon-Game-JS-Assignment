@@ -27,6 +27,7 @@ let sequence = [];
 let playerSequence = [];
 let round = 0;
 let gameStarted = false;
+let isPlayingSequence = false;
 
 // Sounds
 let sounds = {
@@ -51,6 +52,7 @@ function addRandomColor() {
 function playSequence() {
 	let delay = 0;
 	playerSequence = []; // Reset player input
+	isPlayingSequence = true; // Disable input
 
 	sequence.forEach((color, index) => {
 		setTimeout(() => {
@@ -64,15 +66,17 @@ function playSequence() {
 		delay += 1000;
 	});
 
-	// After playing the sequence, allow the player to input
+	// After playing the sequence, allow player input
 	setTimeout(() => {
 		gameMessage.textContent = "Your turn!";
+		isPlayingSequence = false; // Enable input
 	}, delay);
 }
 
 // Handles player input
 function playerInput(color) {
-	if (!gameStarted) return;
+	if (!gameStarted || isPlayingSequence) return; // Ignore input if sequence is playing
+
 	let button = document.getElementById(color);
 	button.classList.add("active");
 	sounds[color].play();
