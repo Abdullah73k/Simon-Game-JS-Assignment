@@ -1,62 +1,75 @@
 /*
 Name: Abdullah Khamis
-Date: feb, 4, 2025
-Purpose: Contains the styles for the user input page
+Date: Feb 4, 2025
+Purpose: Defines the styles for the user input page.
 */
 
+/* Import external NES.css library */
+/*  Note: I did not use any components or pre-made buttons 
+or any other pre-made html and css, this library is only here 
+because i wanted a custom cursor for the game as it matches the aesthetic. 
+Everything was made and written by me, no external libraries. */
+@import "../node_modules/nes.css/css/nes.min.css";
 
-@import '../node_modules/nes.css/css/nes.min.css';
-
+/* Custom font for the game */
 @font-face {
-    font-family: 'Minecraft';
-    src: url(/fonts/Minecraft.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Minecraft";
+	src: url(/fonts/Minecraft.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
+/* Global styling */
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
+/* Main body styles */
 body {
-    color: white;
-    background-color: black;
+	color: white;
+	background-color: black;
 }
 
+/* Container for user settings */
 #userSetting-container {
-    width: 100vw;
-    height: 100dvh;
+	width: 100vw;
+	height: 100dvh;
 }
 
+/* Form styling */
 form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers the form */
-    justify-content: center;
-    gap: 2em;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Centers the form */
+	justify-content: center;
+	gap: 2em;
 }
 
+/* Group styling for form elements */
 .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Left-aligns the label and input */
-    width: 40%; /* Controls the width of input fields */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start; /* Left-aligns the label and input */
+	width: 40%; /* Controls the width of input fields */
 }
 
+/* Label styling */
 label {
-    font-size: 1.2em;
-    margin-bottom: 0.5em; /* Adds spacing between label and input */
+	font-size: 1.2em;
+	margin-bottom: 0.5em; /* Adds spacing between label and input */
 }
 
+/* Input field styling */
 input {
-    width: 100%; /* Makes the input take the full width of .form-group */
-    padding: 0.5em;
+	width: 100%; /* Makes the input take the full width of .form-group */
+	padding: 0.5em;
 }
 
+/* Button styling */
 button {
-    padding: .5em 2em;
+	padding: 0.5em 2em;
 }

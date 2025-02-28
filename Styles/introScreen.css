@@ -1,12 +1,17 @@
 /*
 Name: Abdullah Khamis
-Date: feb, 4, 2025
-Purpose: Contains the styles for the intro screen / mainMenu.html
+Date: Feb 4, 2025
+Purpose: Defines the styles for the main menu (intro screen) of the game.
 */
 
-
+/* Import external NES.css library */
+/*  Note: I did not use any components or pre-made buttons 
+or any other pre-made html and css, this library is only here 
+because i wanted a custom cursor for the game as it matches the aesthetic. 
+Everything was made and written by me, no external libraries. */
 @import '../node_modules/nes.css/css/nes.min.css';
 
+/* Custom font for the game */
 @font-face {
     font-family: 'Minecraft';
     src: url(/fonts/Minecraft.ttf) format('truetype');
@@ -14,17 +19,20 @@ Purpose: Contains the styles for the intro screen / mainMenu.html
     font-style: normal;
 }
 
+/* Global styling */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+/* Main body styles */
 body {
     background-color: black;
     color: #fff;
 }
 
+/* Main menu container */
 #main-menu {
     display: flex;
     height: 100dvh;
@@ -35,11 +43,13 @@ body {
     gap: 3rem;
 }
 
+/* Button focus and active state (removes default outline) */
 button:focus,
 button:active {
   outline: none;
 }
 
+/* General button styling */
 button {
     margin-left: 1rem;
     padding: 0.425rem;
@@ -48,23 +58,16 @@ button {
     transition: background-color 1.3s ease-in-out;
 }
 
+/* Button hover effect */
 button:hover {
     background-color: #8B0000;
+    /* Alternative gradient effect */
     /* background: radial-gradient(circle, #8B0000, #600000); */
     background-size: 150%;
 }
 
+/* Simon game logo styling */
 .simon-logo {
     height: 24rem;
     width: 30rem;
 }
-
-  
-
-
-
-
-
-
-
-

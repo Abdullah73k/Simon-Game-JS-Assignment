@@ -1,7 +1,7 @@
 <!-- 
 Name: Abdullah Khamis
-Date: feb, 4, 2025
-Purpose: Contains the html for the intro screen where it waits for the player to click "start playing" to go to the game
+Date: Feb 4, 2025
+Purpose: This file contains the HTML for the intro screen, where the player waits and clicks "START PLAYING" to begin the game.
 -->
 
 <!DOCTYPE html>
@@ -10,13 +10,21 @@ Purpose: Contains the html for the intro screen where it waits for the player to
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My JS Game</title>
+
+    <!-- Stylesheet for the intro screen -->
     <link rel="stylesheet" href="./Styles/introScreen.css">
 </head>
 <body>
+    <!-- Main menu container -->
     <main id="main-menu">
-        <img class="simon-logo" src="./Images/simon-logo.png" alt="SIMON Game Picture">
+        <!-- SIMON game logo -->
+        <img class="simon-logo" src="./Images/simon-logo.png" alt="SIMON Game Logo">
+        
+        <!-- Button to start the game -->
         <button id="start-button" type="button">START PLAYING</button>
     </main>
+
+    <!-- JavaScript file to handle the intro screen logic -->
     <script src="./JS/introScreen.js"></script>
 </body>
 </html>

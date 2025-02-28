@@ -1,11 +1,15 @@
 /*
 Name: Abdullah Khamis
-Date: feb, 4, 2025
-Purpose: handles the button click and redirection to game from the intro screen
+Date: February 4, 2025
+Purpose: Handles the button click and redirection to the game from the intro screen.
 */
 
+// Get reference to the start button
 let startButton = document.getElementById("start-button");
 
+/**
+ * Redirects the user to the game page when the start button is clicked.
+ */
 startButton.onclick = () => {
-	window.location.assign("../views/game.html");
+    window.location.assign("../views/game.html");
 };

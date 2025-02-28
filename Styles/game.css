@@ -1,11 +1,18 @@
 /*
 Name: Abdullah Khamis
-Date: feb, 4, 2025
-Purpose: Contains the styles for the actual game/game.html
+Date: Feb 4, 2025
+Purpose: Defines the styles for the game interface, including the layout, colors, typography, 
+         and interactive elements.
 */
 
+/* Import external NES.css library */
+/*  Note: I did not use any components or pre-made buttons 
+or any other pre-made html and css, this library is only here 
+because i wanted a custom cursor for the game as it matches the aesthetic. 
+Everything was made and written by me, no external libraries. */
 @import "../node_modules/nes.css/css/nes.min.css";
 
+/* Custom font for the game */
 @font-face {
 	font-family: "Minecraft";
 	src: url(/fonts/Minecraft.ttf) format("truetype");
@@ -13,17 +20,20 @@ Purpose: Contains the styles for the actual game/game.html
 	font-style: normal;
 }
 
+/* Global styling */
 * {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
 }
 
+/* Main body styles */
 body {
 	background-color: black;
 	color: #fff;
 }
 
+/* Container for the game layout */
 #game-container {
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
@@ -32,24 +42,26 @@ body {
 	width: 100vw;
 }
 
+/* Help button styles */
 #help {
 	grid-area: 1 / 1 / 2 / 2;
 	font-family: "Minecraft";
 	font-size: 0.65rem;
 	margin: 0.35em;
-	margin-left: 0.35em;
 	text-align: center;
 	place-self: center;
 }
 
+/* Game status text */
 #game-state-text {
-	grid-area: 1 / 2/ 3 / 8;
+	grid-area: 1 / 2 / 3 / 8;
 	font-family: "Minecraft";
 	font-size: 1.5rem;
 	text-align: center;
 	place-self: center;
 }
 
+/* Simon game button styles */
 .simon-button {
 	width: 8rem;
 	height: 8rem;
@@ -59,6 +71,7 @@ body {
 	border: #ffffff5d solid 0.25rem;
 }
 
+/* Green button */
 #green {
 	background-color: green;
 	grid-area: 3 / 3 / 5 / 5;
@@ -66,6 +79,7 @@ body {
 	box-shadow: 0 0 1rem 0.3rem rgba(0, 255, 0, 0.286);
 }
 
+/* Blue button */
 #blue {
 	background-color: blue;
 	grid-area: 3 / 5 / 5 / 7;
@@ -73,6 +87,7 @@ body {
 	box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 255, 0.423);
 }
 
+/* Red button */
 #red {
 	background-color: red;
 	grid-area: 5 / 3 / 7 / 5;
@@ -80,6 +95,7 @@ body {
 	box-shadow: 0 0 1rem 0.3rem rgba(255, 0, 0, 0.416);
 }
 
+/* Yellow button */
 #yellow {
 	background-color: rgba(255, 255, 0, 0.807);
 	grid-area: 5 / 5 / 7 / 7;
@@ -87,6 +103,7 @@ body {
 	box-shadow: 0 0 1rem 0.3rem rgba(255, 255, 0, 0.4);
 }
 
+/* Modal (help section) styling */
 .modal {
 	display: none;
 	position: fixed;
@@ -98,6 +115,7 @@ body {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Inner modal styling */
 .modal-inner {
 	font-family: "Minecraft";
 	background-color: #00000000;
@@ -108,6 +126,7 @@ body {
 	max-width: 75%;
 }
 
+/* Close button for modal */
 #close-modal {
 	background-color: black;
 	color: white;
@@ -115,6 +134,7 @@ body {
 	align-self: center;
 }
 
+/* Active button effect */
 .active {
 	opacity: 0.5;
 	transition: opacity 0.2s ease-in-out;

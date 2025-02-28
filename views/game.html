@@ -1,7 +1,7 @@
 <!-- 
 Name: Abdullah Khamis
-Date: feb, 4, 2025
-Purpose: Contains the html for the game, such as the buttons, help menu and text above the simon buttons
+Date: Feb 4, 2025
+Purpose: Contains the HTML structure for the game, including buttons, help menu, and game instructions.
 -->
 
 <!DOCTYPE html>
@@ -10,31 +10,45 @@ Purpose: Contains the html for the game, such as the buttons, help menu and text
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Game Page</title>
-		<link rel="icon" href="data:,">
+		
+		<!-- Added this to get rid of this random favicon error i was getting even though im not using any -->
+		<link rel="icon" href="data:," />
+
+		<!-- Stylesheet for game UI -->
 		<link rel="stylesheet" href="../Styles/game.css" />
 	</head>
-	<body #body>
+	<body>
+		<!-- Main container for the game layout -->
 		<main id="game-container">
+			
+			<!-- Help button to explain the game -->
 			<div id="help">CLICK ME</div>
+
+			<!-- Modal for game instructions -->
 			<div class="modal" id="modal">
 				<div class="modal-inner">
 					<h2>What is this game?</h2>
 					<p>
 						This web game is based on the game SIMON. You must repeat the random
 						sequence of lights by pressing the colored buttons in the correct
-						order. If you click it in the wrong order you will lose and have to
-						restart
+						order. If you click in the wrong order, you will lose and have to
+						restart.
 					</p>
                     <button id="close-modal">CLOSE</button>
 				</div>
 			</div>
 
+			<!-- Displays game status -->
 			<h1 id="game-state-text">Click any key to start the game!</h1>
+
+			<!-- Simon game buttons -->
 			<div class="simon-button" type="button" id="green"></div>
 			<div class="simon-button" type="button" id="blue"></div>
 			<div class="simon-button" type="button" id="red"></div>
 			<div class="simon-button" type="button" id="yellow"></div>
 		</main>
+
+		<!-- JavaScript file for game logic -->
         <script src="../JS/game.js"></script>
 	</body>
 </html>

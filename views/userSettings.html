@@ -1,7 +1,7 @@
 <!-- 
 Name: Abdullah Khamis
-Date: feb, 13, 2025
-Purpose: Contains the form html for the user input, this is the first page they visit
+Date: Feb 13, 2025
+Purpose: Contains the form HTML for user input. This is the first page the user visits.
 -->
 
 <!DOCTYPE html>
@@ -10,29 +10,39 @@ Purpose: Contains the form html for the user input, this is the first page they 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>DoMy JS Game</title>
+
+		<!-- Stylesheet for user input form -->
 		<link rel="stylesheet" href="../Styles/playerInput.css" />
 	</head>
 	<body>
+		<!-- Container for the user settings input -->
 		<main id="userSetting-container">
+			<!-- Form for collecting user input -->
 			<form id="form">
+				<!-- User name input field -->
 				<div class="form-group">
 					<label for="fName">Enter your name:</label>
 					<input type="text" name="fName" id="fName" required />
 				</div>
 
+				<!-- User age input field -->
 				<div class="form-group">
 					<label for="age">Enter your age:</label>
 					<input type="text" name="age" id="age" required />
 				</div>
 
+				<!-- User favorite color input field -->
 				<div class="form-group">
 					<label for="favoriteColor">Enter your favorite color:</label>
-					<input type="text" name="favoriteColor" id="favoriteColor" required />
+					<input type="text" name="favoriteColor" id="favoriteColor" placeholder="Any valid CSS color but white" required />
 				</div>
 
+				<!-- Submission button -->
 				<button type="submit" id="inputSubmission">Submit</button>
 			</form>
 		</main>
+
+		<!-- JavaScript file for handling user input logic -->
 		<script src="../JS/userInput.js"></script>
 	</body>
 </html>
