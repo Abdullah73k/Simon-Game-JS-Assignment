@@ -11,5 +11,5 @@ let startButton = document.getElementById("start-button");
  * Redirects the user to the game page when the start button is clicked.
  */
 startButton.onclick = () => {
-    window.location.assign("../views/game.html");
+	window.location.assign("./game.html");
 };

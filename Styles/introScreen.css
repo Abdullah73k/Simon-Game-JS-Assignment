@@ -9,65 +9,65 @@ Purpose: Defines the styles for the main menu (intro screen) of the game.
 or any other pre-made html and css, this library is only here 
 because i wanted a custom cursor for the game as it matches the aesthetic. 
 Everything was made and written by me, no external libraries. */
-@import '../node_modules/nes.css/css/nes.min.css';
+@import "../node_modules/nes.css/css/nes.min.css";
 
 /* Custom font for the game */
 @font-face {
-    font-family: 'Minecraft';
-    src: url(/fonts/Minecraft.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Minecraft";
+	src: url(/fonts/Minecraft.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 /* Global styling */
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 /* Main body styles */
 body {
-    background-color: black;
-    color: #fff;
+	background-color: black;
+	color: #fff;
 }
 
 /* Main menu container */
 #main-menu {
-    display: flex;
-    height: 100dvh;
-    width: 100vw;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+	display: flex;
+	height: 100dvh;
+	width: 100vw;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
 }
 
 /* Button focus and active state (removes default outline) */
 button:focus,
 button:active {
-  outline: none;
+	outline: none;
 }
 
 /* General button styling */
 button {
-    margin-left: 1rem;
-    padding: 0.425rem;
-    font-family: 'Minecraft';
-    background-color: #959494df;
-    transition: background-color 1.3s ease-in-out;
+	margin-left: 1rem;
+	padding: 0.425rem;
+	font-family: "Minecraft";
+	background-color: #959494df;
+	transition: background-color 1.3s ease-in-out;
 }
 
 /* Button hover effect */
 button:hover {
-    background-color: #8B0000;
-    /* Alternative gradient effect */
-    /* background: radial-gradient(circle, #8B0000, #600000); */
-    background-size: 150%;
+	background-color: #8b0000;
+	/* Alternative gradient effect */
+	/* background: radial-gradient(circle, #8B0000, #600000); */
+	background-size: 150%;
 }
 
 /* Simon game logo styling */
 .simon-logo {
-    height: 24rem;
-    width: 30rem;
+	height: 24rem;
+	width: 30rem;
 }
